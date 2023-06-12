@@ -1,4 +1,13 @@
-/* Created by: Mr. Coxall
-* Created on: Sep 2020
+/* Created by: Mohamad
+* Created on: Sep 2023
 * This file contains the CSS for index.html
 */
+
+.donut {
+  float: left;
+  width: 100px;
+}
+
+.mdl-layout__content {
+  padding: 5px;
+}
