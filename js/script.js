@@ -13,45 +13,20 @@ if (navigator.serviceWorker) {
   })
 }
 
-/**
- * Get Clash of Clans player information.
- */
-const getPlayerInfo = async (playerTag) => {
+window.onload = getCat = async () => {
   try {
-    const url = `http://localhost:3000/api/clashofclans/${encodeURIComponent(
-      playerTag
-    )}`
-    const response = await fetch(url)
-    const player = await response.json()
-    console.log(player)
+    // Get cat image
+    const badStatusCodes = [100, 101, 102, 103, 200, 201, 202, 203, 204, 206, 207, 300, 301, 302, 303, 304, 305, 307, 308, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 418, 420, 421, 422, 423, 424, 425, 426, 429, 431, 444, 450, 451, 497, 498, 499, 500, 501, 502, 503, 504, 506, 507, 508, 509, 510, 511, 599,]
+    let randomInt = parseInt(randomSeed * badStatusCodes.length)
+    let randomStatusCode = badStatusCodes[randomInt]
 
-    // Extract player information
-    const playerInfo = {
-      level: player.expLevel,
-      townHallLevel: player.townHallLevel,
-      guild: player.clan ? player.clan.name : "No guild",
-    }
-
-    // Display player information
-    document.getElementById(
-      "townhall-level"
-    ).innerHTML = `Townhall Level: ${playerInfo.townHallLevel}`
-    document.getElementById(
-      "player-level"
-    ).innerHTML = `Player Level: ${playerInfo.level}`
-    document.getElementById(
-      "player-clan"
-    ).innerHTML = `Clan: ${playerInfo.guild}`
+    const catImage = "https://http.cat/" + randomStatusCode
+    console.log(randomNumber)
+    // ouptut cat image
+    document.getElementById("cat-image").innerHTML =
+      "<img id='donut' src=" + catImage + "></img>"
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }
-
-// Get player tag
-function clicked() {
-  const playerName = document.getElementById("player-name").value
-  const playerNumbers = document.getElementById("player-number").value
-
-  const playerTag = playerName + "#" + playerNumbers
-  getPlayerInfo(playerTag)
-}
+getCat()
